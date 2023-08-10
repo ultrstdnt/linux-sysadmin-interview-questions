@@ -55,38 +55,113 @@ A collection of linux sysadmin/devops interview questions. Feel free to contribu
 
 #### [[⬆]](#toc) <a name='simple'>Simple Linux Questions:</a>
 
-* What is the name and the UID of the administrator user?
-* How to list all files, including hidden ones, in a directory?
-* What is the Unix/Linux command to remove a directory and its contents?
-* Which command will show you free/used memory? Does free memory exist on Linux?
-* How to search for the string "my konfu is the best" in files of a directory recursively?
-* How to connect to a remote server or what is SSH?
-* How to get all environment variables and how can you use them?
-* I get "command not found" when I run ```ifconfig -a```. What can be wrong?
-* What happens if I type TAB-TAB?
-* What command will show the available disk space on the Unix/Linux system?
-* What commands do you know that can be used to check DNS records?
-* What Unix/Linux commands will alter a files ownership, files permissions?
-* What does ```chmod +x FILENAME``` do?
-* What does the permission 0750 on a file mean?
-* What does the permission 0750 on a directory mean?
-* How to add a new system user without login permissions?
-* How to add/remove a group from a user?
-* What is a bash alias?
-* How do you set the mail address of the root/a user?
-* What does CTRL-c do?
-* What does CTRL-d do?
-* What does CTRL-z do?
-* What is in /etc/services?
-* How to redirect STDOUT and STDERR in bash? (> /dev/null 2>&1)
-* What is the difference between UNIX and Linux.
-* What is the difference between Telnet and SSH?
-* Explain the three load averages and what do they indicate. What command can be used to view the load averages?
-* Can you name a lower-case letter that is not a valid option for GNU ```ls```?
-* What is a Linux kernel module?
-* Walk me through the steps in booting into single user mode to troubleshoot a problem.
-* Walk me through the steps you'd take to troubleshoot a 404 error on a web application you administer.
-* What is ICMP protocol? Why do you need to use?
+# Q: What is the name and the UID of the administrator user?
+A: The name of the administrator user in Linux is typically "root" and the UID (user identifier) is 0.
+
+# Q: How to list all files, including hidden ones, in a directory?
+A: You can use the command `ls -a` to list all files, including hidden ones, in a directory.
+
+# Q: What is the Unix/Linux command to remove a directory and its contents?
+A: The command to remove a directory and its contents is `rm -r `. Be cautious when using this command as it permanently deletes the directory and its contents.
+
+# Q: Which command will show you free/used memory? Does free memory exist on Linux?
+A: The command `free` will show you information about free and used memory on Linux. Free memory does exist on Linux, and the `free` command provides details about it along with other memory usage statistics.
+
+# Q: How to search for the string "my konfu is the best" in files of a directory recursively?
+A: You can use the command `grep -r "my konfu is the best" ` to search for the given string in files of a directory recursively.
+
+# Q: How to connect to a remote server or what is SSH?
+A: SSH (Secure Shell) is a cryptographic network protocol that allows secure remote login and command execution on a remote server. To connect to a remote server using SSH, you can use the command `ssh @`.
+
+# Q: How to get all environment variables and how can you use them?
+A: You can use the command `printenv` or `env` to get a list of all environment variables in Linux. Environment variables can be used to store information such as system paths, user preferences, and configuration settings. They can be accessed and used by scripts and programs to customize behavior and provide necessary information.
+
+# Q: I get "command not found" when I run ifconfig -a. What can be wrong?
+A: The command `ifconfig` is not available by default on some Linux distributions. It has been replaced by the `ip` command. To get network interface information, you can use the command `ip a` or `ip addr show`.
+
+# Q: What happens if I type TAB-TAB?
+A: Typing TAB-TAB in a Linux shell will trigger the auto-completion feature. It will display a list of possible commands or filenames that match the characters you have typed so far.
+
+# Q: What command will show the available disk space on the Unix/Linux system?
+A: The command `df` (disk free) will show the available disk space on the Unix/Linux system.
+
+# Q: What commands do you know that can be used to check DNS records?
+A: Some commands that can be used to check DNS records are `nslookup`, `dig`, and `host`.
+
+# Q: What Unix/Linux commands will alter a file's ownership, file's permissions?
+A: The `chown` command is used to change the ownership of a file, and the `chmod` command is used to change a file's permissions.
+
+# Q: What does  chmod +x FILENAME do?
+A: The command `chmod +x FILENAME` sets the executable permission for the owner of the file. It allows the owner to execute the file.
+
+# Q: What does the permission 0750 on a file mean?
+A: The permission 0750 on a file means that the owner has read, write, and execute permissions, the group has read and execute permissions, and others have no permissions.
+
+# Q: What does the permission 0750 on a directory mean?
+A: The permission 0750 on a directory means that the owner has read, write, and execute permissions, the group has read and execute permissions, and others have no permissions. It allows the owner to create, delete, and modify files within the directory.
+
+# Q: How to add a new system user without login permissions?
+A: You can add a new system user without login permissions by using the command `useradd -s /sbin/nologin `.
+
+# Q: How to add/remove a group from a user?
+A: To add a user to a group, you can use the `usermod` command with the `-aG` option: `usermod -aG  `. To remove a user from a group, you can use the `gpasswd` command: `gpasswd -d  `.
+
+# Q: What is a bash alias?
+A: A bash alias is a shortcut or nickname for a command or a series of commands. It allows you to create your own custom commands by assigning a name to a command or a command sequence.
+
+# Q: How do you set the mail address of the root/a user?
+A: To set the mail address of the root user or any other user, you can edit the `/etc/aliases` file and add or modify the corresponding entry. After making changes, you should run the `newaliases` command to update the alias database.
+
+# Q: What does CTRL-c do?
+A: Pressing CTRL-c in a terminal sends a SIGINT signal to the currently running process, which typically interrupts or terminates the process.
+
+# Q: What does CTRL-d do?
+A: Pressing CTRL-d in a terminal sends an EOF (End-of-File) character. It is often used to indicate the end of input or to close an interactive shell session.
+
+# Q: What does CTRL-z do?
+A: Pressing CTRL-z in a terminal sends a SIGTSTP signal to the currently running process, which suspends the process and brings it to the background.
+
+# Q: What is in /etc/services?
+A: The `/etc/services` file is a system file that maps well-known port numbers to their corresponding services or protocols.
+
+# Q: How to redirect STDOUT and STDERR in bash? (> /dev/null 2>&1)
+A: The command `> /dev/null 2>&1` redirects both STDOUT (standard output) and STDERR (standard error) to the null device, effectively discarding any output or error messages.
+
+# Q: What is the difference between UNIX and Linux.
+A: UNIX is an operating system that was developed in the 1970s, while Linux is a Unix-like operating system kernel that was developed in the 1990s. Linux is based on the UNIX design principles and shares many similarities with UNIX, but it is not a direct clone or derivative of UNIX.
+
+# Q: What is the difference between Telnet and SSH?
+A: Telnet and SSH are both network protocols used for remote login and command execution. However, Telnet transmits data in plain text, making it insecure, while SSH encrypts data, providing secure remote access.
+
+# Q: Explain the three load averages and what do they indicate. What command can be used to view the load averages?
+A: The three load averages represent the average number of processes in the system's run queue over different time intervals. They indicate the system's CPU usage and load. The load averages are typically displayed as three numbers separated by commas. The command `uptime` can be used to view the load averages along with other system information.
+
+# Q: Can you name a lower-case letter that is not a valid option for GNU ls ?
+A: There is no lower-case letter that is not a valid option for GNU `ls`. All lower-case letters can be used as options for `ls`.
+
+# Q: What is a Linux kernel module?
+A: A Linux kernel module is a piece of code that can be dynamically loaded and unloaded into the Linux kernel at runtime. It extends the functionality of the kernel without the need to reboot the system.
+
+# Q: Walk me through the steps in booting into single user mode to troubleshoot a problem.
+A: To boot into single user mode, you can follow these steps:
+1. Reboot the system.
+2. When the bootloader menu appears, select the desired operating system entry.
+3. Press the `e` key to edit the boot parameters.
+4. Locate the line that starts with `linux` or `linux16` and append `single` or `init=/bin/bash` at the end of the line.
+5. Press `Ctrl+x` or `F10` to boot with the modified parameters.
+6. The system will boot into single user mode, providing a root shell prompt for troubleshooting.
+
+# Q: Walk me through the steps you'd take to troubleshoot a 404 error on a web application you administer.
+A: To troubleshoot a 404 error on a web application, you can follow these steps:
+1. Check the web server logs for any error messages related to the 404 error. The logs are typically located in `/var/log` directory.
+2. Ensure that the requested URL is correct and that the file or resource being accessed actually exists.
+3. Verify the file and directory permissions to ensure that the web server can access the necessary files.
+4. Check the configuration files of the web server to ensure that the URL mappings and document roots are set correctly.
+5. Restart the web server to apply any changes made to the configuration files.
+6. If the issue persists, consider checking the application code or consulting with the developers for further troubleshooting.
+
+# Q: What is ICMP protocol? Why do you need to use it?
+A: ICMP (Internet Control Message Protocol) is a network protocol used for diagnostic and error reporting purposes in IP networks. It is primarily used for sending error messages, testing network connectivity, and troubleshooting network issues. ICMP is essential for tools like ping, traceroute, and network diagnostic utilities.
 
 #### [[⬆]](#toc) <a name='medium'>Medium Linux Questions:</a>
 
